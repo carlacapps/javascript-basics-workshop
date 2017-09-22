@@ -1,7 +1,6 @@
 var tape = require('tape');
 var simpleStore = require('./banks.reducer');
-
-tape('Test the confirm bank reducers', function (t) {
+tape('Reducers should take in an action and return new state', function (t) {
 
 	var banks = [
 			{

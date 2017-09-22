@@ -5,20 +5,18 @@ tape('Test the multiple asynchronous gets', function (t) {
 
 	var requestedBanks = [ 1234, 5678 ];
 
-	var i = 0,
-		len = requestedBanks.length
-		banks = [],
+	var banks = [],
 		returnedBanks = 0;
 
-	for (i; i < len; i++) {
+	requestedBanks.forEach(function (requestedBank, i) {
 		banksModel.get(requestedBanks[i], function (bank) {
 			banks[i] = bank;
 			returnedBanks++;
-			if (returnedBanks === len) {
+			if (returnedBanks === requestedBanks.length) {
 				completeAction();
 			}
 		});
-	}
+	});
 
 	function completeAction() {
 		t.deepEqual(

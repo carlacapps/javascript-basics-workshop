@@ -1,24 +1,13 @@
-var bankCollection = [];
-
 exports.convertToIds = function (banks) {
-	var i = 0,
-		len = banks.length;
-
-	for (i; i < len; i++) {
-		bankCollection.push(banks[i].id);
-	}
-
-	return bankCollection;
+	return banks.map(function (bank) {
+			return bank.id;
+		});
 };
 exports.convertToConfirmedIds = function (banks) {
-	var i = 0,
-		len = banks.length;
-
-	for (i; i < len; i++) {
-		if (banks[i].confirmed) {
-			bankCollection.push(banks[i].id);
-		}
-	}
-
-	return bankCollection;
+	return banks.filter(function (bank) {
+			return bank.confirmed;
+		})
+		.map(function (bank) {
+			return bank.id;
+		});
 };

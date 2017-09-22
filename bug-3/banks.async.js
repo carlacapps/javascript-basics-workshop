@@ -15,8 +15,8 @@ var banks = [
 		confirmed: true
 	}
 ];
-exports.collection = function () {
-	return setTimeout(function () {
-		return banks;
+exports.collection = function (callback) {
+	setTimeout(function () {
+		callback(banks);
 	}, 500);
 }

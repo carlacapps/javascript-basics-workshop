@@ -22,7 +22,7 @@ exports.get = function (requestedId, callback) {
 
 		for (i; i < len; i++) {
 			if (banks[i].id === requestedId) {
-				return callback(banks[i]);
+				callback(banks[i]);
 			}
 		}
 	}, 500);
