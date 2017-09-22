@@ -18,5 +18,5 @@ var banks = [
 exports.collection = function () {
 	return setTimeout(function () {
 		return banks;
-	});
+	}, 500);
 }

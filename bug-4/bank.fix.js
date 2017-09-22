@@ -1,25 +1,26 @@
 var tape = require('tape');
 var banksModel = require('./banks.async');
 
-var requestedBanks = [ 1234, 5678 ];
+tape('Test the multiple asynchronous gets', function (t) {
 
-var i = 0,
-	len = requestedBanks.length
-	banks = [],
-	returnedBanks = 0;
+	var requestedBanks = [ 1234, 5678 ];
 
-for (i; i < len; i++) {
-	banksModel.get(requestedBanks[i], function (bank) {
-		banks[i] = bank;
-		returnedBanks++;
-		if (returnedBanks === len) {
-			completeAction();
-		}
-	});
-}
+	var i = 0,
+		len = requestedBanks.length
+		banks = [],
+		returnedBanks = 0;
 
-function completeAction() {
-	tape('', function (t) {
+	for (i; i < len; i++) {
+		banksModel.get(requestedBanks[i], function (bank) {
+			banks[i] = bank;
+			returnedBanks++;
+			if (returnedBanks === len) {
+				completeAction();
+			}
+		});
+	}
+
+	function completeAction() {
 		t.deepEqual(
 			banks,
 			[
@@ -37,5 +38,5 @@ function completeAction() {
 			'Array should be of the banks requested.'
 		);
 		t.end();
-	});
-}
+	}
+});

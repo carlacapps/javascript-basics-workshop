@@ -18,7 +18,7 @@ module.exports = {
 	],
 	get: function (requestedId) {
 		var i = 0,
-			len = this.banks.length;
+			len = this.banks && this.banks.length;
 
 		for (i; i < len; i++) {
 			if (this.banks[i].id === requestedId) {
