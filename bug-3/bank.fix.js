@@ -7,7 +7,7 @@ tape('Test our async bank collection method', function (t) {
 			t.deepEqual(
 				banks[0],
 				{ id: 1234, name: "Bank of America", confirmed: true },
-				'The first bank in the array should be.'
+				'The first bank in the array should be Bank of America.'
 			);
 			t.end();
 		});
